@@ -1,0 +1,28 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "chrome": 60
+                }
+            }
+        ],
+        "@babel/typescript"
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "decoratorsBeforeExport": false
+            }
+        ],
+        [
+            "@babel/proposal-class-properties",
+            {
+                "loose": true
+            }
+        ],
+        "@babel/proposal-object-rest-spread",
+    ]
+}

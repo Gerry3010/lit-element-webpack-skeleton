@@ -1,6 +1,4 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-// @ts-ignore
-// No problem importing css, but VSC complains
 import style from './element.scss';
 
 const capFirstLetter = (s: string) => s.split('-').map(subS => subS[0].toUpperCase() + subS.slice(1)).join('-');

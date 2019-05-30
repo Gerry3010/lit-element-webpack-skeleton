@@ -1,3 +1,3 @@
-import MyElement from "./element";
+import MyElement from './element';
 
 export { MyElement };

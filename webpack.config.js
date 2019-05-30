@@ -1,14 +1,14 @@
-var path = require("path");
+var path = require('path');
 
 module.exports = {
     entry: './src/index',
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist',
-        filename: 'elements.bundle.js'
+        filename: 'elements.bundle.js',
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.json']
+        extensions: [ '.ts', '.tsx', '.js', '.jsx', '.sass', '.scss', '.css', '.json' ],
     },
     module: {
         rules: [
@@ -18,20 +18,22 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.s(c|a)ss$/,
+                test: /\.s[ca]ss$/,
                 use: [
-                    "to-string-loader",
-                    "css-loader",
-                    "sass-loader"
-                ]
+                    { loader: 'to-string-loader' },
+                    { loader: 'css-modules-typescript-loader' },
+                    { loader: 'css-loader', options: { modules: true } },
+                    { loader: 'sass-loader' },
+                ],
             },
             {
                 test: /\.css$/,
                 use: [
-                    "to-string-loader",
-                    "css-loader"
-                ]
-            }
+                    { loader: 'to-string-loader' },
+                    { loader: 'css-modules-typescript-loader' },
+                    { loader: 'css-loader', options: { modules: true } },
+                ],
+            },
         ],
     },
 };
